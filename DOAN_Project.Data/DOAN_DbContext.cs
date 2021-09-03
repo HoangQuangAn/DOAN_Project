@@ -5,7 +5,7 @@ namespace DOAN_Project.Model
 {
     public class DOAN_DbContext : DbContext
     {
-        public DOAN_DbContext() : base("DOAN_DbContextConnection")
+        public DOAN_DbContext() : base("DOAN_Connection")
         {
             Configuration.LazyLoadingEnabled = false;
         }
