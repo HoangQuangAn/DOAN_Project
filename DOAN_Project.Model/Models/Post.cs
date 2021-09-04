@@ -1,4 +1,5 @@
 ﻿using DOAN_Project.Model.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -37,5 +38,6 @@ namespace DOAN_Project.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { set; get; }
+        public IEnumerable<PostTag> PostTags { get; set; }
     }
 }

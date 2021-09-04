@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DOAN_Project.Model.Models
 {
-    [Table("Products")]
+    [Table("Products")] 
     public class Product:Auditable
     {
         [Key]
