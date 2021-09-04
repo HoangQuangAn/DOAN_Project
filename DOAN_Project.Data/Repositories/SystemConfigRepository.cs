@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DOAN_Project.Data.Infrastructure;
+using DOAN_Project.Model.Models;
+using DOAN_Project.Model.Repositories;
 
 namespace DOAN_Project.Data.Repositories
 {
-    class SystemConfigRepository
+    public interface ISystemConfigRepository
     {
+    }
+
+    public class SystemConfigRepository : RepositoryBase<SystemConfig>, ISystemConfigRepository
+    {
+        public SystemConfigRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+        }
     }
 }
