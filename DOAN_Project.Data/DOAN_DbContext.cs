@@ -9,7 +9,7 @@ namespace DOAN_Project.Model
         {
             Configuration.LazyLoadingEnabled = false;
         }
-        public DbSet<Footer> Footers { get; set; }
+        public DbSet<Product> Footers { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuGroup> MenuGroups{ get; set; }
         public DbSet<Order> Orders{ get; set; }

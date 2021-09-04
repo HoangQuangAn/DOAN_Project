@@ -4,10 +4,10 @@ using DOAN_Project.Model.Repositories;
 
 namespace DOAN_Project.Data.Repositories
 {
-    public interface IFooterRepository
+    public interface IFooterRepository:IRepository<Product>
     {
     }
-    public class FooterRepository : RepositoryBase<Footer>, IFooterRepository
+    public class FooterRepository : RepositoryBase<Product>, IFooterRepository
     {
         public FooterRepository(IDbFactory dbFactory) : base(dbFactory)
         {

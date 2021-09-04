@@ -4,7 +4,7 @@ using DOAN_Project.Model.Repositories;
 
 namespace DOAN_Project.Data.Repositories
 {
-    public interface IMenuRepository
+    public interface IMenuRepository : IRepository<Menu>
     {
     }
 
