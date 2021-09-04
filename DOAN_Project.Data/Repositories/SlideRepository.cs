@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DOAN_Project.Data.Infrastructure;
+using DOAN_Project.Model.Models;
+using DOAN_Project.Model.Repositories;
 
 namespace DOAN_Project.Data.Repositories
 {
-    class SlideRepository
+    public interface ISlideRepository
     {
+    }
+
+    public class SlideRepository : RepositoryBase<Slide>, ISlideRepository
+    {
+        public SlideRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+        }
     }
 }
