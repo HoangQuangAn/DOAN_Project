@@ -18,6 +18,7 @@ namespace DOAN_Project.Service
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
         PostCategory GetById(int id);
+        void Save();
     }
 
     public class PostCategoryService : IPostCategoryService
@@ -54,6 +55,11 @@ namespace DOAN_Project.Service
         public PostCategory GetById(int id)
         {
             return _postCategoryRepository.GetSingleById(id);
+        }
+
+        public void Save()
+        {
+            _unitOfWork.Commit();
         }
 
         public void Update(PostCategory postCategory)
