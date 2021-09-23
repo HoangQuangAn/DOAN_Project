@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DOAN_Project.Model.DOAN_DbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DOAN_DbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DOAN_Project.Model.DOAN_DbContext context)
+        protected override void Seed(DOAN_DbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -1,7 +1,7 @@
 ﻿using DOAN_Project.Model.Models;
 using System.Data.Entity;
 
-namespace DOAN_Project.Model
+namespace DOAN_Project.Data
 {
     public class DOAN_DbContext : DbContext
     {

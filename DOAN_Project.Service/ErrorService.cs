@@ -1,7 +1,6 @@
-﻿using DOAN_Project.Data.Repositories;
+﻿using DOAN_Project.Data.Infrastructure;
+using DOAN_Project.Data.Repositories;
 using DOAN_Project.Model.Models;
-using DOAN_Project.Model.Repositories;
-using System;
 
 namespace DOAN_Project.Service
 {
@@ -14,8 +13,9 @@ namespace DOAN_Project.Service
 
     public class ErrorService : IErrorService
     {
-        IErrorRepository _errorRepository;
-        IUnitOfWork _unitOfWork;
+        private IErrorRepository _errorRepository;
+        private IUnitOfWork _unitOfWork;
+
         public ErrorService(IErrorRepository errorRepository, IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
