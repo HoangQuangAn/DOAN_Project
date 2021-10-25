@@ -1,6 +1,4 @@
 ﻿using DOAN_Project.Data.Repositories;
-using DOAN_Project.Model;
-using DOAN_Project.Model.Repositories;
 
 namespace DOAN_Project.Data.Infrastructure
 {

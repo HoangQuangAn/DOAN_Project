@@ -1,33 +1,40 @@
-﻿using DOAN_Project.Data.Repositories;
+﻿using DOAN_Project.Data.Infrastructure;
+using DOAN_Project.Data.Repositories;
 using DOAN_Project.Model.Models;
-using DOAN_Project.Model.Repositories;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DOAN_Project.Service
 {
     public interface IPostService
     {
         void Add(Post post);
-        void Update(Post post);
-        void Delete(int id);
-        IEnumerable<Post> GetAll();
-        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
-        Post GetById(int id);
-        IEnumerable<Post> GetAllByTagPaging(string tag,int page, int pageSize, out int totalRow);
-        void SaveChange();
 
+        void Update(Post post);
+
+        void Delete(int id);
+
+        IEnumerable<Post> GetAll();
+
+        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+
+        Post GetById(int id);
+
+        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
+
+        void SaveChange();
     }
 
     public class PostService : IPostService
     {
-        IPostRepository _postRepository;
-        IUnitOfWork _unitOfWork;
+        private IPostRepository _postRepository;
+        private IUnitOfWork _unitOfWork;
+
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
             _unitOfWork = unitOfWork;
         }
+
         public void Add(Post post)
         {
             _postRepository.Add(post);
@@ -40,13 +47,13 @@ namespace DOAN_Project.Service
 
         public IEnumerable<Post> GetAll()
         {
-            return _postRepository.GetAll(new string[] { "PostCategory" } );
+            return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
-        public IEnumerable<Post> GetAllByTagPaging(string tag,int page, int pageSize, out int totalRow)
+        public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
             //TODO: select all post by tag
-            return _postRepository.GetAllByTag(tag,page,pageSize,out totalRow);
+            return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)

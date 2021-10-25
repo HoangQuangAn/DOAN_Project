@@ -1,12 +1,15 @@
 ﻿using DOAN_Project.Data.Infrastructure;
 using DOAN_Project.Model.Models;
 using DOAN_Project.Model.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DOAN_Project.Data.Repositories
 {
-    public interface IPostRepository:IRepository<Post>
+    public interface IPostRepository : IRepository<Post>
     {
         IEnumerable<Post> GetAllByTag(string tag, int pageIndex, int pageSize, out int totalRow);
     }
@@ -16,6 +19,7 @@ namespace DOAN_Project.Data.Repositories
         public PostRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
+
         public IEnumerable<Post> GetAllByTag(string tag, int pageIndex, int pageSize, out int totalRow)
         {
             var query = from p in DbContext.Posts

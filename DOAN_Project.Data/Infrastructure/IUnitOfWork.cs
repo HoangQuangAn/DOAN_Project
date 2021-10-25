@@ -1,4 +1,4 @@
-﻿namespace DOAN_Project.Model.Repositories
+﻿namespace DOAN_Project.Data.Infrastructure
 {
     public interface IUnitOfWork
     {
