@@ -1,7 +1,7 @@
 ﻿using DOAN_Project.Model.Models;
 using System.Data.Entity;
 
-namespace DOAN_Project.Model
+namespace DOAN_Project.Data
 {
     public class DOAN_DbContext : DbContext
     {
@@ -9,7 +9,7 @@ namespace DOAN_Project.Model
         {
             Configuration.LazyLoadingEnabled = false;
         }
-        public DbSet<Product> Footers { get; set; }
+        public DbSet<Footer> Footers { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuGroup> MenuGroups{ get; set; }
         public DbSet<Order> Orders{ get; set; }
@@ -26,6 +26,7 @@ namespace DOAN_Project.Model
         public DbSet<SystemConfig> SystemConfigs{ get; set; }
         public DbSet<Tag> Tags{ get; set; }
         public DbSet<VisitorStatistic> VisitorStatistics{ get; set; }
+        public DbSet<Error> Errors{ get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

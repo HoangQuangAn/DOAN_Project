@@ -1,4 +1,5 @@
-﻿using DOAN_Project.Data.Repositories;
+﻿using DOAN_Project.Data.Infrastructure;
+using DOAN_Project.Data.Repositories;
 using DOAN_Project.Model.Models;
 using DOAN_Project.Model.Repositories;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ namespace DOAN_Project.Service
 {
     public interface IPostCategoryService
     {
-        void Add(PostCategory postCategory);
+        PostCategory Add(PostCategory postCategory);
 
         void Update(PostCategory postCategory);
 
@@ -18,6 +19,7 @@ namespace DOAN_Project.Service
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
         PostCategory GetById(int id);
+        void Save();
     }
 
     public class PostCategoryService : IPostCategoryService
@@ -31,9 +33,9 @@ namespace DOAN_Project.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(PostCategory postCategory)
+        public PostCategory Add(PostCategory postCategory)
         {
-            _postCategoryRepository.Add(postCategory);
+            return _postCategoryRepository.Add(postCategory);
         }
 
         public void Delete(int id)
@@ -54,6 +56,11 @@ namespace DOAN_Project.Service
         public PostCategory GetById(int id)
         {
             return _postCategoryRepository.GetSingleById(id);
+        }
+
+        public void Save()
+        {
+            _unitOfWork.Commit();
         }
 
         public void Update(PostCategory postCategory)
