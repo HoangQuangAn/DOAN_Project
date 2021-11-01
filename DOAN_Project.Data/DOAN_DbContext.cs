@@ -1,9 +1,10 @@
 ﻿using DOAN_Project.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
 namespace DOAN_Project.Data
 {
-    public class DOAN_DbContext : DbContext
+    public class DOAN_DbContext : IdentityDbContext<ApplicationUser>
     {
         public DOAN_DbContext() : base("DOAN_Connection")
         {
@@ -28,10 +29,15 @@ namespace DOAN_Project.Data
         public DbSet<VisitorStatistic> VisitorStatistics{ get; set; }
         public DbSet<Error> Errors{ get; set; }
 
+        public static DOAN_DbContext Create()
+        {
+            return new DOAN_DbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Configure domain classes using modelBuilder here..
-
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
